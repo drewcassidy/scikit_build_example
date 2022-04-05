@@ -18,10 +18,13 @@ setup(
     description="a minimal example package (with pybind11)",
     author="Henry Schreiner",
     license="MIT",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
-    cmake_install_dir="src/scikit_build_example",
+    packages=find_packages(),
+
+    # uncommenting this throws an error that doesnt exist with setuptools setup()
+    # "error: package directory '//scikit_build_example' does not exist"
+    # package_dir={"": "."}, 
+
     include_package_data=True,
-    extras_require={"test": ["pytest"]},
+    cmake_install_dir=".",
     python_requires=">=3.6",
 )
